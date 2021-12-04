@@ -1,6 +1,6 @@
 import 'package:firstapp/loginpage.dart';
 import 'package:flutter/material.dart';
-import 'homepage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,20 +15,24 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(
-          primarySwatch: Colors.green,
-          scaffoldBackgroundColor: Colors.teal.shade100,
-          shadowColor: Colors.teal.shade100,
-          appBarTheme: AppBarTheme(
-              centerTitle: true,
-              backgroundColor: Colors.green.shade400,
-              elevation: 12,
-              iconTheme: const IconThemeData(
-                color: Colors.black87,
-              ))),
+        primarySwatch: Colors.green,
+        fontFamily: GoogleFonts.lato().fontFamily,
+        primaryTextTheme: GoogleFonts.latoTextTheme(),
+        scaffoldBackgroundColor: Colors.white,
+        shadowColor: Colors.teal.shade100,
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          backgroundColor: Colors.green.shade400,
+          elevation: 12,
+          iconTheme: const IconThemeData(
+            color: Colors.black87,
+          ),
+        ),
+      ),
       darkTheme: ThemeData(brightness: Brightness.dark),
       routes: {
-        "/": (context) => HomePage(),
-        "/login": (context) => LoginPage(),
+        "/": (context) => const LoginPage(),
+        "/login": (context) => const LoginPage(),
       },
     );
   }
