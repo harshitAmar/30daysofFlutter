@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firstapp/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -53,7 +54,22 @@ class LoginPage extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text("Login"))
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, MyRoutes.homeRoute);
+                        },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size(
+                            120,
+                            40,
+                          ),
+                        ),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 22,
+                          ),
+                        ))
                   ],
                 ),
               )
