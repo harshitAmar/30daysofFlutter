@@ -31,12 +31,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      initialRoute: MyRoutes.homeRoute,
       darkTheme: ThemeData(brightness: Brightness.dark),
       routes: {
         "/": (context) => const LoginPage(),
         MyRoutes.loginRoute: (context) => const LoginPage(),
-        MyRoutes.homeRoute: (context) => HomePage(),
-        "/": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => const HomePage(),
       },
     );
   }
