@@ -1,59 +1,72 @@
+import 'dart:convert';
+
+class CatalogModel {
+  static List<Item> items = [];
+}
+
 class Item {
-  final num id;
+  final int id;
   final String name;
   final String desc;
   final num price;
   final String color;
   final String image;
 
-  Item(
-      {required this.id,
-      required this.name,
-      required this.desc,
-      required this.price,
-      required this.color,
-      required this.image});
-  factory Item.fromMap(Map<dynamic, dynamic> map) {
+  Item({
+    required this.id,
+    required this.name,
+    required this.desc,
+    required this.price,
+    required this.color,
+    required this.image,
+  });
+
+  Item copyWith({
+    required int id,
+    required String name,
+    required String desc,
+    required num price,
+    required String color,
+    required String image,
+  }) {
     return Item(
-        id: map['id'],
-        name: map['name'],
-        desc: map['desc'],
-        price: map['price'],
-        color: map['color'],
-        image: map["image"]);
+      id: id,
+      name: name,
+      desc: desc,
+      price: price,
+      color: color,
+      image: image,
+    );
   }
-  toMap() => {
-        "id": id,
-        "name": name,
-        "desc": desc,
-        "price": price,
-        "color": color,
-        "image": image,
-      };
-}
 
-class CatalogModel {
-  static List<Item> items = [
-    Item(
-      id: 001,
-      name: "Oppo A5s",
-      desc: "Best quality product by oppo",
-      price: 15000,
-      color: "#33505a",
-      image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc",
-    ),
-  ];
-}
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'desc': desc,
+      'price': price,
+      'color': color,
+      'image': image,
+    };
+  }
 
-final products = [
-  Item(
-    id: 001,
-    name: "Oppo A5s",
-    desc: "Best quality product by oppo",
-    price: 15000,
-    color: "#33505a",
-    image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc",
-  ),
-];
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+      id: map['id'],
+      name: map['name'],
+      desc: map['desc'],
+      price: map['price'],
+      color: map['color'],
+      image: map['image'],
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Item.fromJson(String source) => Item.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'Item(id: $id, name: $name, desc: $desc, price: $price, color: $color, image: $image)';
+  }
+}
