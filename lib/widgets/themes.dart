@@ -3,8 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
   static ThemeData get themedata => ThemeData(
-        primarySwatch: Colors.green,
-        fontFamily: GoogleFonts.lato().fontFamily,
+        primarySwatch: Colors.teal,
         primaryTextTheme: GoogleFonts.latoTextTheme(),
         scaffoldBackgroundColor: Colors.white,
         shadowColor: Colors.teal.shade100,
