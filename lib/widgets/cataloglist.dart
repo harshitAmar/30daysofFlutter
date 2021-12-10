@@ -49,32 +49,24 @@ class CatalogItem extends StatelessWidget {
           children: [
             catalog.name.text.bold.lg.color(Colors.black).make(),
             catalog.desc.text.caption(context).make(),
-            MyButtonBar(catalog: catalog)
+            ButtonBar(
+              alignment: MainAxisAlignment.spaceBetween,
+              children: [
+                "\$${catalog.price}".text.xl2.bold.red800.make(),
+                ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                            StadiumBorder(),
+                          ),
+                        ),
+                        child: "Add to cart".text.bold.make())
+                    .wOneForth(context)
+              ],
+            )
           ],
         ))
       ],
     )).white.roundedLg.square(120).make().py16();
-  }
-}
-
-class MyButtonBar extends StatelessWidget {
-  final Item catalog;
-
-  const MyButtonBar({Key? key, required this.catalog}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ButtonBar(
-      alignment: MainAxisAlignment.spaceBetween,
-      children: [
-        "\$${catalog.price}".text.xl2.bold.red800.make(),
-        ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    shape: MaterialStateProperty.all(StadiumBorder())),
-                child: "Buy".text.xl.bold.make())
-            .w20(context)
-      ],
-    ).pOnly(right: 8);
   }
 }

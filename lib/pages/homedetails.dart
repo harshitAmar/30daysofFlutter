@@ -18,9 +18,21 @@ class HomeDetails extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
           iconSize: 30,
         ),
+        backgroundColor: Colors.transparent,
       ),
       backgroundColor: Colors.teal.shade50,
-      bottomNavigationBar: MyButtonBar(catalog: catalog).p16(),
+      bottomNavigationBar: ButtonBar(
+        alignment: MainAxisAlignment.spaceBetween,
+        children: [
+          "\$${catalog.price}".text.xl2.bold.red800.make(),
+          ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all(StadiumBorder())),
+                  child: "Buy".text.xl.bold.make())
+              .w20(context)
+        ],
+      ).pOnly(right: 8),
       body: SafeArea(
         child: Column(
           children: [
@@ -39,6 +51,14 @@ class HomeDetails extends StatelessWidget {
                         children: [
                           catalog.name.text.bold.xl4.color(Colors.black).make(),
                           catalog.desc.text.xl.caption(context).make(),
+                          20.heightBox,
+                          Expanded(
+                              child:
+                                  "Sit sea eos kasd et erat. Duo stet accusam stet ut clita amet. Elitr dolores ipsum sea est est sit duo invidunt ea, erat ea amet sit elitr lorem vero magna ipsum kasd, eirmod aliquyam sanctus invidunt diam, justo aliquyam et ipsum diam et diam kasd et, aliquyam sit gubergren."
+                                      .text
+                                      .align(TextAlign.justify)
+                                      .make()
+                                      .px32())
                         ],
                       ).py64(),
                     )))
