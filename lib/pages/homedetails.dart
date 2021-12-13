@@ -10,6 +10,7 @@ class HomeDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.theme.splashColor,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(
@@ -20,19 +21,25 @@ class HomeDetails extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: Colors.teal.shade50,
       bottomNavigationBar: ButtonBar(
         alignment: MainAxisAlignment.spaceBetween,
         children: [
-          "\$${catalog.price}".text.xl2.bold.red800.make(),
-          ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.all(StadiumBorder())),
-                  child: "Buy".text.xl.bold.make())
-              .w20(context)
+          "\$${catalog.price}"
+              .text
+              .xl2
+              .bold
+              .color(context.theme.hintColor)
+              .make(),
+          Material(
+            color: context.theme.splashColor,
+            borderRadius: BorderRadius.circular(28),
+            child: MaterialButton(
+                    onPressed: () {},
+                    child: "Add to cart".text.bold.size(20).make())
+                .wOneForth(context),
+          ).w32(context)
         ],
-      ).pOnly(right: 8),
+      ).pOnly(left: 24, right: 24).backgroundColor(context.theme.shadowColor),
       body: SafeArea(
         child: Column(
           children: [
@@ -46,16 +53,21 @@ class HomeDetails extends StatelessWidget {
                     edge: VxEdge.TOP,
                     child: Container(
                       width: context.screenWidth,
-                      color: Colors.white,
+                      color: context.theme.cardColor,
                       child: Column(
                         children: [
-                          catalog.name.text.bold.xl4.color(Colors.black).make(),
+                          catalog.name.text.bold.xl4
+                              .color(context.theme.hintColor)
+                              .make(),
                           catalog.desc.text.xl.caption(context).make(),
                           20.heightBox,
                           Expanded(
                               child:
                                   "Sit sea eos kasd et erat. Duo stet accusam stet ut clita amet. Elitr dolores ipsum sea est est sit duo invidunt ea, erat ea amet sit elitr lorem vero magna ipsum kasd, eirmod aliquyam sanctus invidunt diam, justo aliquyam et ipsum diam et diam kasd et, aliquyam sit gubergren."
                                       .text
+                                      .size(17)
+                                      .fontFamily("lato")
+                                      .normal
                                       .align(TextAlign.justify)
                                       .make()
                                       .px32())

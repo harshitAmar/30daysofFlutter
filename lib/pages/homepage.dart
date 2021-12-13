@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:firstapp/utils/routes.dart';
 import 'package:firstapp/widgets/cataloglist.dart';
+import 'package:firstapp/widgets/themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,9 +21,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final days = 30;
-
-  final name = "Codepur";
   @override
   void initState() {
     super.initState();
@@ -46,9 +44,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(CupertinoIcons.cart),
+        backgroundColor: context.theme.splashColor,
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
       ),
-      backgroundColor: Colors.teal.shade100,
+      backgroundColor: context.theme.scaffoldBackgroundColor,
       body: SafeArea(
           child: Container(
               padding: Vx.m32,

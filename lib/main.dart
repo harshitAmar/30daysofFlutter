@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:firstapp/pages/cart_page.dart';
 import 'package:firstapp/pages/homepage.dart';
 import 'package:firstapp/pages/loginpage.dart';
@@ -16,10 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
-      theme: MyTheme.themedata,
+      themeMode: ThemeMode.dark,
+      theme: MyTheme.darkTheme(context),
       initialRoute: MyRoutes.homeRoute,
-      darkTheme: ThemeData(brightness: Brightness.dark),
       routes: {
         "/": (context) => const LoginPage(),
         MyRoutes.loginRoute: (context) => const LoginPage(),
