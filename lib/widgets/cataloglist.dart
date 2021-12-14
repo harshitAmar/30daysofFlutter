@@ -1,7 +1,7 @@
 import 'package:firstapp/models/catalog_model.dart';
 import 'package:firstapp/pages/homedetails.dart';
 import 'package:firstapp/widgets/addtocart.dart';
-import 'package:firstapp/widgets/cart.dart';
+import 'package:firstapp/models/cart.dart';
 import 'package:firstapp/widgets/catalogimage.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
