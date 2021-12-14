@@ -10,7 +10,7 @@ class HomeDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.theme.splashColor,
+      backgroundColor: context.theme.primaryColorDark,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(

@@ -6,7 +6,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
-      scaffoldBackgroundColor: Colors.teal,
+      scaffoldBackgroundColor: Colors.teal.shade100,
       fontFamily: GoogleFonts.roboto().fontFamily,
       splashColor: Colors.teal.shade300,
       cardColor: Colors.teal.shade400,

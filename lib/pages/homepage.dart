@@ -9,7 +9,6 @@ import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:firstapp/models/catalog_model.dart';
-import 'package:firstapp/widgets/drawer.dart';
 
 import '../widgets/catalogheader.dart';
 
@@ -55,8 +54,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CatalogHeader().pOnly(bottom: 16),
-                  if (CatalogModel.items != null &&
-                      CatalogModel.items.isNotEmpty)
+                  if (CatalogModel.items.isNotEmpty)
                     CatalogList().expand()
                   else
                     Center(
