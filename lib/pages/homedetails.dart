@@ -1,4 +1,5 @@
 import 'package:firstapp/models/catalog_model.dart';
+import 'package:firstapp/widgets/addtocart.dart';
 import 'package:firstapp/widgets/cataloglist.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter/material.dart';
@@ -30,13 +31,8 @@ class HomeDetails extends StatelessWidget {
               .bold
               .color(context.theme.hintColor)
               .make(),
-          Material(
-            color: context.theme.splashColor,
-            borderRadius: BorderRadius.circular(28),
-            child: MaterialButton(
-                    onPressed: () {},
-                    child: "Add to cart".text.bold.size(20).make())
-                .wOneForth(context),
+          AddToCart(
+            catalog: catalog,
           ).w32(context)
         ],
       ).pOnly(left: 24, right: 24).backgroundColor(context.theme.shadowColor),
